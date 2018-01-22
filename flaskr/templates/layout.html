@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Flaskr-simin</title>
+<link rel=stylesheet type=text/css href="../static/css/style.css" charset="utf-8">
+<div class=page>
+  <h1>Management database</h1>
+  <div class=metanav>
+  {% if not session.logged_in %}
+    <a href="{{ url_for('login') }}">Log In</a>
+  {% else %}
+    <a href="{{ url_for('logout') }}">You are Simin. Wanna Log Out ?</a>
+  {% endif %}
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>

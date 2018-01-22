@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+	<table border="3">
+	  <caption>Insert</caption>
+	 <tr>
+        <td>Title :</td>
+        <td><input type=text size=15 name=title></td>
+	  </tr>
+	  <tr>
+        <td>Employee Number :</td>
+        <td><input type=text size=15 name=number></td>
+	  </tr>
+	  <tr>
+		<td>Year :</td>
+		<td><input type=text size=15 name=year></td>
+	  </tr>
+	</table>
+        <input type=submit value="Confirm">
+    </form>
+	
+	<form action="{{ url_for('delete') }}" method=post class=delete>
+	<table border="3">
+	  <caption>Delete</caption>
+	 <tr>
+        <td>Title :</td>
+        <td><input type=text size=15 name=title_delete></td>
+	  </tr>
+	  <tr>
+        <td>Employee Number :</td>
+        <td><input type=text size=15 name=number_delete></td>
+	  </tr>
+	  <tr>
+		<td>Year :</td>
+		<td><input type=text size=15 name=year_delete></td>
+	  </tr>
+	</table>
+        <input type=submit value="Confirm">
+    </form>
+	
+	 <p><a href="{{ url_for('show_entries') }}">See database</a></p>
+	 
+  {% endif %}
+{% endblock %}

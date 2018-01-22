@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+
+ <h2> Data list </h2>
+  <table class=entries border=1  cellspacing="0">
+  <tr>
+    <td>Title</td>
+	<td>Number Employee</td>
+	<td>Year</td>
+  </tr>
+  {% for entry in entries %}
+	<tr>
+    <td>{{ entry.title }}</td>
+	<td>{{ entry.number }}</td>
+	<td>{{ entry.year | safe}}</td>
+	</tr>
+  {% endfor %}
+  </table>
+   <p><a href="{{ url_for('graphique') }}">Visualize data for Departement " Finance "</a></p>
+   <p><a href="{{ url_for('index') }}">Operate database</a></p>  
+{% endblock %}
